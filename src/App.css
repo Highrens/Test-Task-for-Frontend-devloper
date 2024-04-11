@@ -6,23 +6,36 @@
   font-family: 'Inter';
 }
 
-.main{
-height: 100%;  
+.main {
+  height: 100%;
 }
+
 .App-header {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
 }
 
 .header-title {
-  font-weight: 700;
+  text-align: center;
+  font-size: calc(10px + 2vmin);
+  font-weight: 800;
   line-height: 100%;
   letter-spacing: 1em;
   text-transform: uppercase;
   color: #000;
+
+  @media (max-width: 768px) {
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    font-style: normal;
+    font-size: 37px;
+    letter-spacing: 0.5em;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-title {
+    font-size: 32px;
+  }
 }
 
 .grid-container {
@@ -33,11 +46,13 @@ height: 100%;
   grid-gap: 2vw;
 
   @media (max-width: 768px) {
+    margin: auto 0;
+    grid-gap: 0;
     grid-template-columns: 1fr;
   }
 }
 
-.goodLogo {
+.goodLogo-container {
   position: relative;
   grid-row: 2 / span 1;
   grid-column: 2 / span 1;
@@ -49,13 +64,19 @@ height: 100%;
   @media (max-width: 768px) {
     grid-row: 4 / span 1;
     grid-column: 1;
+    border-radius: 0;
+    border: none;
+    height: 250px;
   }
 }
 
-.goodLogo-image{
+.goodLogo-image {
   height: 70%;
 
   position: absolute;
   right: -48px;
   bottom: -38px;
+  @media (max-width: 768px) {
+    height: 100%;
+  }
 }

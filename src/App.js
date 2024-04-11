@@ -8,23 +8,47 @@ import { useEffect, useState } from "react";
 
 function App() {
   const [isNormal, setIsNormal] = useState(true);
+  const [reason, setReason] = useState("easteregg");
   const [co2Level, setCo2Level] = useState(543.4);
   const [temperature, setTemperature] = useState(23.1);
+  const [goodDays, setGoodDays] = useState(179);
 
-  useEffect(() => {
+  function UpdateData() {
     getData().then((res) => {
       if (res) {
         console.log(res);
         if (res.co2 > 800 || res.temp > 27) {
+          //Что то не впорядке, сбрасываем дни
           setIsNormal(false);
+          setGoodDays(0)
+          //Ищем и ставим виновных
+          if (res.co2 > 800 && res.temp > 27) {
+            setReason("CO2 и температура");
+          } else {
+            setReason(res.co2 > 800 ? "CO2" : "Температура");
+          }
+          
         } else {
+          //Все пучком
           setIsNormal(true);
+          setGoodDays(Math.round(Math.random() * 10));
         }
 
-        setCo2Level(res.co2);
+        setCo2Level(Math.round(res.co2));
         setTemperature(res.temp);
       }
+    }).catch((err) => {
+      //Ловим ошибки
+      setIsNormal(false);
+      setReason("Что то сломалось :(")
     });
+  }
+
+  useEffect(() => {
+    UpdateData();
+    const intervalId = setInterval(UpdateData, 60000); // Запускаем запрос каждые 60 секунд
+
+    return () => clearInterval(intervalId); // Очищаем интервал при размонтировании компонента
   }, []);
 
   useEffect(() => {
@@ -38,18 +62,14 @@ function App() {
       </header>
       <main className="main">
         <div className="grid-container">
-          <Status
-            isNormal={isNormal}
-            title="Душнила доволен вами"
-            subtitle="Все показатели в норме"
-          />
+          <Status isNormal={isNormal} reason={reason} />
           <Statistics
             isNormal={isNormal}
-            temperature={temperature + " ℃"}
-            co2={co2Level + " ppm"}
+            temperature={temperature}
+            co2={co2Level}
           />
-          <History days="Дней без душноты 0" />
-          <div className="goodLogo">
+          <History days={goodDays} />
+          <div className="goodLogo-container">
             <img
               className="goodLogo-image"
               src={goodLogo}

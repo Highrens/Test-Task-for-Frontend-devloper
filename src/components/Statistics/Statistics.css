@@ -6,18 +6,23 @@
 
     border: 1px solid #000;
     border-radius: 20px;
+
     @media (max-width: 768px) {
+        padding-top: 40px;
+        border: none;
+        border-radius: 0;
         grid-column: 1;
-        grid-row: 2 / span 1;;
-      }
+        grid-row: 2 / span 1;
+        ;
+    }
 }
 
 .Statistics_normal {
-    background: linear-gradient(135deg, #fff 0%, #00ff57 100%);
+    background: linear-gradient(135deg, #fff 20%, #00ff57 100%);
 }
 
 .Statistics_over-co2 {
-    background: linear-gradient(135deg, #fff 0%, #ff8a7a 100%);
+    background: linear-gradient(135deg, #fff 20%, #ff8a7a 100%);
 }
 
 .Statistics__big-numbers {
@@ -27,6 +32,11 @@
     font-size: 9vw;
     line-height: 100%;
     letter-spacing: -0.06em;
+
+    @media (max-width: 768px) {
+        font-size: 60px;
+        margin-bottom: 12px;
+    }
 }
 
 .Statistics__subtitle {
@@ -37,4 +47,8 @@
     font-size: 2vw;
     line-height: 100%;
     letter-spacing: -0.06em;
+
+    @media (max-width: 768px) {
+        font-size: 29px;
+    }
 }

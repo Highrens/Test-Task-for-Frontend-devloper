@@ -3,6 +3,7 @@
     flex-direction: column;
     justify-content: space-between;
 
+
     border-radius: 20px;
 
     grid-row: 2 / span 1;
@@ -12,9 +13,10 @@
     color: #ffffff;
 
     @media (max-width: 768px) {
+        border-radius: 0;
         grid-column: 1;
         grid-row: 3 / span 1;
-      }
+    }
 }
 
 .History__days {
@@ -23,7 +25,12 @@
     font-size: 2.5vw;
     line-height: 100%;
     letter-spacing: -0.06em;
-    text-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    text-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+
+    @media (max-width: 768px) {
+        font-size: 45px;
+        margin: 40px;
+    }
 }
 
 .History__to-history-button {
@@ -43,6 +50,16 @@
     color: #000;
     stroke: #000;
     align-items: center;
+
+    @media (max-width: 768px) {
+        padding: 15px 20px;
+
+        font-weight: 500;
+        font-size: 25px;
+        line-height: 100%;
+        letter-spacing: -0.06em;
+        width: 280px;
+    }
 }
 
 .History__to-history-button:hover {
@@ -55,10 +72,10 @@
 
 .History__to-history-button:hover svg {
     stroke: #fff;
-    
+
 }
 
-.History__to-history-button-arrow{
+.History__to-history-button-arrow {
     width: 10%;
     height: auto;
 }

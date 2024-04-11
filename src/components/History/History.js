@@ -2,7 +2,7 @@ import "./History.css";
 export default function History(props) {
   return (
     <div className="History">
-      <h2 className="History__days">{props.days}</h2>
+      <h2 className="History__days">Дней без душноты {props.days}</h2>
       <button className="History__to-history-button">
         История
         <svg className="History__to-history-button-arrow"
