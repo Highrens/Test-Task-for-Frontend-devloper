@@ -1,0 +1,64 @@
+.History {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    border-radius: 20px;
+
+    grid-row: 2 / span 1;
+    grid-column: 1 / span 1;
+
+    background: #000;
+    color: #ffffff;
+
+    @media (max-width: 768px) {
+        grid-column: 1;
+        grid-row: 3 / span 1;
+      }
+}
+
+.History__days {
+    margin: 55px 20px;
+    font-weight: 500;
+    font-size: 2.5vw;
+    line-height: 100%;
+    letter-spacing: -0.06em;
+    text-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+}
+
+.History__to-history-button {
+    display: flex;
+    justify-content: space-between;
+
+    margin: 0 6% 9%;
+    border: 1px solid #fff;
+    border-radius: 100px;
+    padding: 7.5% 10%;
+    min-height: 63px;
+
+    font-weight: 500;
+    font-size: 1.5vw;
+    line-height: 100%;
+    letter-spacing: -0.06em;
+    color: #000;
+    stroke: #000;
+    align-items: center;
+}
+
+.History__to-history-button:hover {
+    color: #ffffff;
+    border: 1px solid #fff;
+    background: #000;
+    fill: #fff;
+    transition: .5s;
+}
+
+.History__to-history-button:hover svg {
+    stroke: #fff;
+    
+}
+
+.History__to-history-button-arrow{
+    width: 10%;
+    height: auto;
+}
